@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>web-starter</artifactId>
+    <artifactId>service</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -34,11 +34,7 @@
 
         <dependency>
             <groupId>org.example</groupId>
-            <artifactId>rest-controller</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>service</artifactId>
+            <artifactId>repository</artifactId>
         </dependency>
     </dependencies>
 </project>

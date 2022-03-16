@@ -2,6 +2,7 @@ package apptranslator.service;
 
 import apptranslator.dto.TranslateRequestDto;
 import apptranslator.dto.TranslateResponseDto;
+import apptranslator.dto.Translation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -23,12 +24,6 @@ public class YandexTranslationService {
     @Value("${yandex.translate.target-lang}")
     private String targetLang;
 
-    @Value("${yandex.translate.iam-token-url}")
-    private String tokenURL;
-
-    @Value("${yandex.translate.service-account-id}")
-    private String serviceAccountId;
-
     @Value("${yandex.translate.key-id}")
     private String keyId;
 
@@ -49,7 +44,7 @@ public class YandexTranslationService {
         return response.getBody()
                 .getTranslations()
                 .stream()
-                .map(TranslateResponseDto.Translation::getText)
+                .map(Translation::getText)
                 .toList();
     }
 }

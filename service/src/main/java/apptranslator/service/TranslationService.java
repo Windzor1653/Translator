@@ -1,6 +1,7 @@
 package apptranslator.service;
 
 import apptranslator.repository.TranslationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -12,9 +13,11 @@ public class TranslationService {
     private final TranslationRepository translationRepository;
     private final YandexTranslationService yandexTranslationService;
 
-    public TranslationService() {
-        this.translationRepository = new TranslationRepository();
-        this.yandexTranslationService = new YandexTranslationService();
+    @Autowired
+    public TranslationService(TranslationRepository translationRepository,
+                              YandexTranslationService yandexTranslationService) {
+        this.translationRepository = translationRepository;
+        this.yandexTranslationService = yandexTranslationService;
     }
 
     public List<String> translate(String text) {
@@ -27,3 +30,4 @@ public class TranslationService {
         return Arrays.stream(text.toLowerCase(Locale.ROOT).split("\\s")).toList();
     }
 }
+
