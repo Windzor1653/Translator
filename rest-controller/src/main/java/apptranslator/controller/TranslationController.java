@@ -27,7 +27,7 @@ public class TranslationController {
     @PostMapping("")
     @Operation(summary = "Разделение текста на слова и перевод")
     public ResponseEntity<List<String>> translationRequest(@RequestBody TextToTranslateDto dto) {
-        List<String> translationResult = translationService.translate(dto.getText());
+        List<String> translationResult = translationService.translate(dto.getText(), dto.getTargetLang());
         return ResponseEntity.ok(translationResult);
     }
 }

@@ -21,13 +21,10 @@ public class YandexTranslationService {
     @Value("${yandex.translate.folder-id}")
     private String folderID;
 
-    @Value("${yandex.translate.target-lang}")
-    private String targetLang;
-
     @Value("${yandex.translate.key-id}")
     private String keyId;
 
-    public List<String> translate(List<String> words) {
+    public List<String> translate(List<String> words, String targetLang) {
         TranslateRequestDto request = new TranslateRequestDto(folderID, words, targetLang);
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();

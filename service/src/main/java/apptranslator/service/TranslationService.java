@@ -4,6 +4,7 @@ import apptranslator.repository.TranslationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -20,11 +21,15 @@ public class TranslationService {
         this.yandexTranslationService = yandexTranslationService;
     }
 
-    public List<String> translate(String text) {
+    public List<String> translate(String text, String targetLang) {
         List<String> wordList = parseText(text);
-        List<String> translatedWordList = yandexTranslationService.translate(wordList);
-        translationRepository.insertTranslationRequestInfo(translatedWordList.get(0).toString(),
-                wordList.get(0).toString(), "21345");
+        List<String> translatedWordList = yandexTranslationService.translate(wordList, targetLang);
+
+        for (int i = 0; i < translatedWordList.size(); i++) {
+            translationRepository.insertTranslationRequestInfo(translatedWordList.get(i),
+                    wordList.get(i), targetLang, LocalDateTime.now(), "21345");
+        }
+
         return translatedWordList;
     }
 
