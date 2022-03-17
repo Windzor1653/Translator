@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Service
-public class YandexTranslationService {
+public class YandexTranslationRestService {
     @Value("${yandex.translate.api-url}")
     private String apiURL;
 
@@ -29,7 +29,7 @@ public class YandexTranslationService {
     private final RestTemplate restTemplate;
 
     @Autowired
-    public YandexTranslationService (RestTemplate restTemplate) {
+    public YandexTranslationRestService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
