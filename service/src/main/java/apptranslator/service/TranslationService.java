@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Service
 public class TranslationService {
@@ -25,10 +27,11 @@ public class TranslationService {
         List<String> wordList = parseText(text);
         List<String> translatedWordList = yandexTranslationService.translate(wordList, targetLang);
 
-        for (int i = 0; i < translatedWordList.size(); i++) {
-            translationRepository.insertTranslationRequestInfo(translatedWordList.get(i),
-                    wordList.get(i), targetLang, LocalDateTime.now(), "21345");
-        }
+        IntStream.range(0, translatedWordList.size())
+                .boxed()
+                .collect(Collectors.toMap(translatedWordList::get, wordList::get))
+                .forEach((key, value) -> translationRepository.insertTranslationRequestInfo(key,
+                        value, targetLang, LocalDateTime.now(), "21345"));
 
         return translatedWordList;
     }
