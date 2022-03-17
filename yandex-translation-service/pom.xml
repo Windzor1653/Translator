@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>service</artifactId>
+    <artifactId>yandex-translation-service</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -18,13 +18,19 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.example</groupId>
             <artifactId>repository</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>yandex-translation-service</artifactId>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
         </dependency>
     </dependencies>
+
 </project>

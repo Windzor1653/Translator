@@ -17,8 +17,9 @@
     <modules>
         <module>web-starter</module>
         <module>rest-controller</module>
-        <module>Service</module>
+        <module>service</module>
         <module>repository</module>
+        <module>yandex-translation-service</module>
     </modules>
 
     <properties>
@@ -48,6 +49,17 @@
                 <groupId>org.example</groupId>
                 <artifactId>repository</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>yandex-translation-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.13</version>
             </dependency>
 
             <!--swagger spring-doc-->

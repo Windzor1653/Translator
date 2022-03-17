@@ -1,8 +1,0 @@
-{
-  "properties": [
-    {
-      "name": "yandex.translate.api-url",
-      "type": "java.lang.String",
-      "description": "Description for yandex.translate.api-url."
-  }
-] }

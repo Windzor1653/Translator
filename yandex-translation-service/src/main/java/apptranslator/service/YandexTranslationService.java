@@ -1,8 +1,10 @@
 package apptranslator.service;
 
+import apptranslator.config.RestTemplateConfig;
 import apptranslator.dto.TranslateRequestDto;
 import apptranslator.dto.TranslateResponseDto;
 import apptranslator.dto.Translation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -24,9 +26,15 @@ public class YandexTranslationService {
     @Value("${yandex.translate.key-id}")
     private String keyId;
 
+    private final RestTemplate restTemplate;
+
+    @Autowired
+    public YandexTranslationService (RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
     public List<String> translate(List<String> words, String targetLang) {
         TranslateRequestDto request = new TranslateRequestDto(folderID, words, targetLang);
-        RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
 
         headers.setContentType(MediaType.APPLICATION_JSON);

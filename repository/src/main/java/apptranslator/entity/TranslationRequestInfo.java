@@ -1,4 +1,4 @@
-package apptranslator.repository.entity;
+package apptranslator.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,11 +17,10 @@ public abstract class TranslationRequestInfo implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String en;
-    private String ru;
-    private String ip;
-    private String params;
+    private String sourceWord;
+    private String targetLang;
+    private String translatedWord;
     private LocalDateTime localDateTime;
-    //private LocalDate requestDate;
+    private String ip;
 }
 
