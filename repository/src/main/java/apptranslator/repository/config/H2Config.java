@@ -41,7 +41,7 @@ public class H2Config {
             @Qualifier("dataSourceH2") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .persistenceUnit("events-h2")
+                .persistenceUnit("h2")
                 .packages("apptranslator.repository")
                 .properties(getHibernateProperties())
                 .build();

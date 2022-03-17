@@ -23,7 +23,8 @@ public class TranslationService {
     public List<String> translate(String text) {
         List<String> wordList = parseText(text);
         List<String> translatedWordList = yandexTranslationService.translate(wordList);
-        translationRepository.insertTranslationRequestInfo();
+        translationRepository.insertTranslationRequestInfo(translatedWordList.get(0).toString(),
+                wordList.get(0).toString(), "21345");
         return translatedWordList;
     }
 
