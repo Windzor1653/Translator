@@ -10,19 +10,20 @@ import java.util.Locale;
 
 @Service
 public class TranslationService {
-    //private final TranslationRepository translationRepository;
+    private final TranslationRepository translationRepository;
     private final YandexTranslationService yandexTranslationService;
 
-    @Autowired
-    public TranslationService(//TranslationRepository translationRepository,
+    //@Autowired
+    public TranslationService(TranslationRepository translationRepository,
                               YandexTranslationService yandexTranslationService) {
-        //this.translationRepository = translationRepository;
+        this.translationRepository = translationRepository;
         this.yandexTranslationService = yandexTranslationService;
     }
 
     public List<String> translate(String text) {
         List<String> wordList = parseText(text);
         List<String> translatedWordList = yandexTranslationService.translate(wordList);
+        translationRepository.insertTranslationRequestInfo();
         return translatedWordList;
     }
 
