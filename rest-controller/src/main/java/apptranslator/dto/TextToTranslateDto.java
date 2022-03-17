@@ -10,8 +10,4 @@ public class TextToTranslateDto {
     public String getText() {
         return text;
     }
-
-    //    private Boolean isOrdered;
-//    private Boolean isFilteredLevelWords;
-//    private Boolean splitByEnter;
 }

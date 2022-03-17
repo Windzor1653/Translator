@@ -5,7 +5,6 @@ import apptranslator.service.TranslationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,6 +28,6 @@ public class TranslationController {
     @Operation(summary = "Разделение текста на слова и перевод")
     public ResponseEntity<List<String>> translationRequest(@RequestBody TextToTranslateDto dto) {
         List<String> translationResult = translationService.translate(dto.getText());
-        return new ResponseEntity<>(translationResult, HttpStatus.OK);
+        return ResponseEntity.ok(translationResult);
     }
 }

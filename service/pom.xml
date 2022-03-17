@@ -22,16 +22,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!--swagger spring-doc-->
-        <dependency>
-            <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-annotations</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>repository</artifactId>

@@ -10,13 +10,13 @@ import java.util.Locale;
 
 @Service
 public class TranslationService {
-    private final TranslationRepository translationRepository;
+    //private final TranslationRepository translationRepository;
     private final YandexTranslationService yandexTranslationService;
 
     @Autowired
-    public TranslationService(TranslationRepository translationRepository,
+    public TranslationService(//TranslationRepository translationRepository,
                               YandexTranslationService yandexTranslationService) {
-        this.translationRepository = translationRepository;
+        //this.translationRepository = translationRepository;
         this.yandexTranslationService = yandexTranslationService;
     }
 

@@ -28,19 +28,16 @@ public class YandexTranslationService {
     private String keyId;
 
     public List<String> translate(List<String> words) {
-        folderID = "b1geosgovn9ahvelrubk";
-        keyId = "AQVN00zNPxmvU-14qAUzYmpxz3anbuN6panv1Run";
-        targetLang = "ru";
-        apiURL = "https://translate.api.cloud.yandex.net/translate/v2/translate";
-
         TranslateRequestDto request = new TranslateRequestDto(folderID, words, targetLang);
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
+
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.add("Authorization", "Api-Key " + keyId);
         HttpEntity<TranslateRequestDto> entity = new HttpEntity<>(request, headers);
         ResponseEntity<TranslateResponseDto> response =
                 restTemplate.postForEntity(apiURL, entity, TranslateResponseDto.class);
+
         return response.getBody()
                 .getTranslations()
                 .stream()
