@@ -10,6 +10,7 @@
         <module name="web-starter" />
         <module name="service" />
         <module name="rest-controller" />
+        <module name="yandex-translation-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +24,7 @@
       <module name="service" options="-parameters" />
       <module name="web-controller" options="-parameters" />
       <module name="web-starter" options="-parameters" />
+      <module name="yandex-translation-service" options="-parameters" />
     </option>
   </component>
 </project>

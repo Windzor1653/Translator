@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,12 @@ public class TranslationController {
     public ResponseEntity<List<String>> translationRequest(@RequestHeader("host") String host,
                                                            @RequestBody TextToTranslateDto dto) {
         List<String> translationResult = translationService.translate(dto.getText(), dto.getTargetLang(), host);
+
+        if (translationResult.isEmpty()) {
+            translationResult = new ArrayList<>();
+            translationResult.add("Выберите корректный язык перевода: en/ru");
+        }
+
         return ResponseEntity.ok(translationResult);
     }
 }
